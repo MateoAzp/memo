@@ -1,0 +1,48 @@
+body {margin:0;}
+
+img {
+  width: auto;
+}
+#main {
+  width: 60%;
+  height: auto;
+  position: absolute;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+  background-color: thistle;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;  
+  padding: 10px;
+}
+
+#main .celda{
+  width: calc( 100%/ 4.4);
+  background-color: slategray;  
+  height: 150px;
+  margin: 10px;
+}
+
+.carta-frente{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 5px;
+  cursor: pointer;
+  color: azure;
+  background-color: slategray;
+  transition: transform 400ms ease-out;
+}
+
+  .carta-frente:hover{
+    transform: scale(1.05);
+  }
+
+.carta-dorso {
+  background-color: aqua;
+}
+
+.oculto {
+  background:transparent;
+}
