@@ -1,10 +1,9 @@
-# memo
-2019
-Trabajo Práctico Laboriatorio IV - UTN FRP
-Profesor: Ernesto Cullen
+### 2019<br>
+## Trabajo Práctico Laboriatorio IV - UTN FRP<br>
+Profesor: Ernesto Cullen<br>
 
-Juego de Memoria:
-  lógica -> JS
-  vista -> HTML & CSS
-  animaciones -> animate.css
-  googlefont -> Opensans
+## Juego de Memoria:<br>
+  lógica -> JS<br>
+  vista -> HTML & CSS<br>
+  animaciones -> animate.css<br>
+  googlefont -> Opensans<br>
