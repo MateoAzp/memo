@@ -1,9 +1,11 @@
 body {margin:0;}
 
-img {
-  width: auto;
-}
-#main {
+img {display: none;
+max-width: auto;
+margin: auto;
+height: 100%;}
+
+#tablero {
   width: 60%;
   height: auto;
   position: absolute;
@@ -16,11 +18,11 @@ img {
   padding: 10px;
 }
 
-#main .celda{
+#tablero .celda{
   width: calc( 100%/ 4.4);
   background-color: slategray;  
   height: 150px;
-  margin: 10px;
+  margin: 10px;  
 }
 
 .carta-frente{
@@ -33,6 +35,7 @@ img {
   color: azure;
   background-color: slategray;
   transition: transform 400ms ease-out;
+  z-index: 100;
 }
 
   .carta-frente:hover{
@@ -41,6 +44,8 @@ img {
 
 .carta-dorso {
   background-color: aqua;
+  width: 100%;
+  height: 100%;  
 }
 
 .oculto {
