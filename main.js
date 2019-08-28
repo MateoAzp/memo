@@ -1,10 +1,35 @@
 
-//Armar los pares
-//Ordenar Random
-//Empezar juego
-//comparar pares
-//contar intentos
-//marcar ganado
+function repartirCartas() {
+  const arraySrcs = ['chrome.svg','facebook.svg','firefox.svg','google-icon.svg',
+                   'html-5.svg', 'instagram-icon.svg','internetexplorer.svg','opera.svg',
+                   'chrome.svg','facebook.svg','firefox.svg','google-icon.svg',
+                   'html-5.svg', 'instagram-icon.svg','internetexplorer.svg','opera.svg']                   
+  let arrayRepartir = arraySrcs
+    
+  let cartasDorsos = document.querySelectorAll('.carta-dorso')
+    for (carta of cartasDorsos) {
+      let randomIndice = Math.floor(( Math.random() * (arrayRepartir.length - 1) ))      
+      let srcImagen = arrayRepartir[randomIndice]
+      arrayRepartir.splice(randomIndice, 1)
+
+      let img = carta.children[0]
+      img.src = 'img/'+srcImagen
+    }  
+} 
+repartirCartas()
+
+function jugarDeNuevo () {
+  repartirCartas()
+  activarTablero()
+  activarCeldas()
+  cartasSeleccionadas = new Array();
+
+  const boton = document.getElementById('btnJugarDeNuevo')
+    boton.style.display = 'none'
+    boton.classList.remove('animated', 'bounce')
+}
+
+
 let tablero = document.getElementById('tablero')
 activarTablero = () => tablero.style.pointerEvents = 'auto';
 desactivarTablero = () => tablero.style.pointerEvents = 'none';
@@ -23,7 +48,6 @@ function animacionGiro() {
 function esconderFrenteMostrarDorso() {  
   let padre = this.parentNode;
   let celda = padre.parentNode;
-
   desactivarCelda(celda)
 
   let dorso = padre.children[0];
@@ -52,10 +76,13 @@ function chequearSiCoinciden() {
       
       //Se limpian las cartas seleccionadas para seguir Jugando
       cartasSeleccionadas = new Array()
+      chequearSiGano()
     }
     else {
       // No coinciden, ocultar de nuevo y volver a activar seleccionadas 
-      resetearCartas()      
+      setTimeout( () => {
+      resetearCartas()   
+      },500)   
     }
   }
 }
@@ -82,4 +109,36 @@ function desactivarCelda(celda)
 }
 
 
+function chequearSiGano() {
+  const celdas = document.querySelectorAll('.celda')
+  let contadorActivas = 0
+  for (celda of celdas) {
+    if(celda.style.pointerEvents == 'auto')
+    {
+      contadorActivas++
+    }
+  }    
 
+  if(contadorActivas == 0){
+    const boton = document.getElementById('btnJugarDeNuevo')
+    boton.style.display = 'block'
+    boton.classList.add('animated', 'bounce')
+  }
+
+}
+
+function activarCeldas(){
+  const celdas = document.querySelectorAll('.celda')
+  for (celda of celdas) {
+    celda.style.pointerEvents = 'auto'    
+    let frente = celda.children[0].children[1]
+    let imagen = celda.children[0].children[0]         
+    
+    //Mostrar Frente
+    frente.classList.remove('animated', 'flipOutY')
+    
+    //Ocultar Imagen
+    imagen.style.display = "none";
+    imagen.classList.remove('animated', 'flash')
+  }  
+}

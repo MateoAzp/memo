@@ -1,9 +1,19 @@
-body {margin:0;}
+body {margin:0;
+font-family: 'Open Sans', sans-serif;
+background-color:  rgb(30,34,39);}
 
 img {display: none;
 max-width: auto;
 margin: auto;
 height: 100%;}
+
+h1 {
+  text-align: center;
+  font-size: 3em;
+  color: #ffffff;
+}
+
+h6 {text-align: center;}
 
 #tablero {
   width: 60%;
@@ -11,7 +21,7 @@ height: 100%;}
   position: absolute;
   top: 50%; right: 50%;
   transform: translate(50%,-50%);
-  background-color: thistle;
+  background-color: gainsboro;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;  
@@ -20,7 +30,7 @@ height: 100%;}
 
 #tablero .celda{
   width: calc( 100%/ 4.4);
-  background-color: slategray;  
+  background-color: gainsboro;  
   height: 150px;
   margin: 10px;  
 }
@@ -43,11 +53,18 @@ height: 100%;}
   }
 
 .carta-dorso {
-  background-color: aqua;
+  background-color: gainsboro;
   width: 100%;
   height: 100%;  
 }
 
-.oculto {
-  background:transparent;
+
+.boton {
+  background-color: #ffffff;
+  font-size: 2em;
+  color: slategray;
+  border: none;
+  padding: 10px 20px; 
+  display: none;
+  margin-left: 45%;
 }
